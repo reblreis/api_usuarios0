@@ -1,5 +1,5 @@
 # API_Usuarios - Documentação do Projeto
-Este é o README do projeto API_Usuarios, um aplicativo Spring Boot para gerenciar turmas de alunos.
+Este é o README do projeto API_Usuarios, um aplicativo Spring Boot para gerenciar usuários.
 
 ## Bibliotecas Utilizadas
 O projeto utiliza as seguintes bibliotecas:
@@ -22,7 +22,7 @@ A API possui uma documentação Swagger para facilitar o entendimento e teste do
 ## Detalhes da documentação:
 
 Título: API para controle de usuário
-Descrição: API Spring Boot com Spring Data para gerenciamento de usuários.
+Descrição: API para controle de usuários em Spring Boot com Spring Data, JPQL e API RESTful.
 Versão: v1
 Executando o Projeto
 Para executar o projeto, siga as etapas abaixo:
@@ -41,4 +41,4 @@ Após importar a coleção, você terá acesso a todas as requisições pré-con
 Execute as requisições conforme necessário para interagir com a API.
 
 ## Considerações Finais
-Este é um exemplo básico de um projeto Spring Boot para gerenciar turmas de alunos. A documentação do Swagger e o uso do Postman facilitam o teste e a interação com a API. Sinta-se à vontade para modificar, estender e adaptar o projeto de acordo com suas necessidades.
+Este é um exemplo básico de um projeto Spring Boot para gerenciar usuários. A documentação do Swagger e o uso do Postman facilitam o teste e a interação com a API. Sinta-se à vontade para modificar, estender e adaptar o projeto de acordo com suas necessidades.
