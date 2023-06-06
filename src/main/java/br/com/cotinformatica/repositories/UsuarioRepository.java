@@ -9,19 +9,13 @@ import org.springframework.stereotype.Repository;
 
 import br.com.cotiinformatica.entities.Usuario;
 
-@Repository // annotation do spring boot para definir um repositorio do spring data para
-			// herdar as operações de CRUD //JPQL = JAVA
-public interface UsuarioRepository extends JpaRepository<Usuario, Integer> { // interface é para herdar tudo pronto da
-																				// classe Usuário
+@Repository
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
 	@Query("select u from Usuario u where u.email = :email")
-	Optional<Usuario> findByEmail(@Param("email") String email); // um único usuário baseado por email
+	Optional<Usuario> findByEmail(@Param("email") String email);
 
-	@Query("select u from Usuario u where u.email = :email and u.senha = :senha") // para trazer um único usuário
-																					// baseado por email e senha
-	Optional<Usuario> findByEmailAndSenha(@Param("email") String email, @Param("senha") String senha); // método para
-																										// passar dois
-																										// argumentos
-																										// email e senha
+	@Query("select u from Usuario u where u.email = :email and u.senha = :senha")
+	Optional<Usuario> findByEmailAndSenha(@Param("email") String email, @Param("senha") String senha);
 
 }

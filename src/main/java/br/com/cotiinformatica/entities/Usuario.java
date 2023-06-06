@@ -31,7 +31,7 @@ public class Usuario { // mapeamento para traduzir ao spring data como fica no b
 	@Column(name = "nome", length = 150, nullable = false)
 	private String nome;
 
-	@Column(name = "email", length = 100, nullable = false, unique = true)
+	@Column(name = "email", length = 100, nullable = false, unique = true) //unique = campo único
 	private String email;
 
 	@Column(name = "senha", length = 40, nullable = false)
