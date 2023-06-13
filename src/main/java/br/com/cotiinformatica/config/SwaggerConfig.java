@@ -13,16 +13,17 @@ public class SwaggerConfig {
 
 	@Bean
 	public OpenAPI customOpenApi() {
-
+		
 		Contact contact = new Contact();
 		contact.url("http://www.cotiinformatica.com.br");
 		contact.email("contato@cotiinformatica.com.br");
-
-		return new OpenAPI().components(new Components())
-				.info(new Info()
+		
+		return new OpenAPI().components
+				(new Components()).info
+				(new Info()
 						.title("API Usuários - COTI Informática")
 						.description("API Spring Boot para controle de usuários")
 						.contact(contact)
-						.version("v1"));
+						.version("v1")); 
 	}
 }

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.cotiinformatica.dtos.CriarUsuarioRequestDTO;
 import br.com.cotiinformatica.dtos.CriarUsuarioResponseDTO;
 import br.com.cotiinformatica.entities.Usuario;
+import br.com.cotiinformatica.repositories.UsuarioRepository;
 import br.com.cotiinformatica.services.MD5Service;
-import br.com.cotinformatica.repositories.UsuarioRepository;
 import jakarta.validation.Valid;
 
 @RestController

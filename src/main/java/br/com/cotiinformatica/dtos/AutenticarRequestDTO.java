@@ -14,14 +14,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class AutenticarRequestDTO { //para entrada e saída de dados e validar
+public class AutenticarRequestDTO {
 
 	@Email(message = "Por favor, informe um endereço de email válido.")
 	@NotBlank(message = "Por favor, informe o email do usuário.")
 	private String email;
-
+	
 	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", 
 			message = "Por favor, informe uma senha com letras maiúsculas, mínúsculas, números, símbolos e no mínimo 8 caracteres.")
 	@NotBlank(message = "Por favor, informe a senha do usuário.")
-	private String senha;
+	private String senha;	
 }

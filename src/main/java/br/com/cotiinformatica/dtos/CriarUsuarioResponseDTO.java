@@ -11,12 +11,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class CriarUsuarioResponseDTO { //devolver quando o usuário é cadastrado
+public class CriarUsuarioResponseDTO {
 
 	private Integer status;
 	private String mensagem;
 	private Integer idUsuario;
 	private String nome;
 	private String email;
-
 }

@@ -19,8 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @ControllerAdvice
-public class ValidationHandler extends ResponseEntityExceptionHandler { // uma classe para tratar melhor o controle dos
-																		// erros dos DTOS
+public class ValidationHandler extends ResponseEntityExceptionHandler {
 
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,

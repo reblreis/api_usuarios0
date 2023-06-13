@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.cotiinformatica.dtos.AutenticarRequestDTO;
 import br.com.cotiinformatica.dtos.AutenticarResponseDTO;
 import br.com.cotiinformatica.entities.Usuario;
+import br.com.cotiinformatica.repositories.UsuarioRepository;
 import br.com.cotiinformatica.services.JwtTokenService;
 import br.com.cotiinformatica.services.MD5Service;
-import br.com.cotinformatica.repositories.UsuarioRepository;
 import jakarta.validation.Valid;
 
 @RestController
@@ -23,32 +23,32 @@ public class AutenticarController {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-
+	
 	@Autowired
 	private MD5Service md5Service;
-
+	
 	@Autowired
 	private JwtTokenService jwtTokenService;
-
+	
 	@PostMapping
 	public ResponseEntity<AutenticarResponseDTO> post(@RequestBody @Valid AutenticarRequestDTO dto) {
 
 		AutenticarResponseDTO response = new AutenticarResponseDTO();
-
+		
 		try {
-			// pesquisar o usuário no banco de dados através do email e da senha
-			Optional<Usuario> optional = usuarioRepository.findByEmailAndSenha(dto.getEmail(),
-					md5Service.encrypt(dto.getSenha()));
-
-			// verificar se o usuário não foi encontrado
-			if (optional.isEmpty()) {
-				// HTTP 401 (UNAUTHORIZED)
+			//pesquisar o usuário no banco de dados através do email e da senha
+			Optional<Usuario> optional = usuarioRepository.findByEmailAndSenha(dto.getEmail(), md5Service.encrypt(dto.getSenha()));
+			
+			//verificar se o usuário não foi encontrado
+			if(optional.isEmpty()) {
+				//HTTP 401 (UNAUTHORIZED)
 				response.setStatus(401);
 				response.setMensagem("Acesso negado. Usuário não encontrado.");
-			} else {
+			}
+			else {
 				Usuario usuario = optional.get();
-
-				// realizando a autenticação do usuário
+				
+				//realizando a autenticação do usuário
 				response.setStatus(200);
 				response.setMensagem("Usuário autenticado com sucesso.");
 				response.setIdUsuario(usuario.getIdUsuario());
@@ -56,12 +56,14 @@ public class AutenticarController {
 				response.setEmail(usuario.getEmail());
 				response.setAccessToken(jwtTokenService.generateToken(usuario.getEmail()));
 			}
-		} catch (Exception e) {
-			// HTTP 500 (INTERNAL SERVER ERROR)
+		}
+		catch(Exception e) {
+			//HTTP 500 (INTERNAL SERVER ERROR)
 			response.setStatus(500);
 			response.setMensagem("Falha ao autenticar o usuário: " + e.getMessage());
 		}
-
-		return ResponseEntity.status(response.getStatus()).body(response);
+		
+		return ResponseEntity.status(response.getStatus())
+				.body(response);
 	}
 }
